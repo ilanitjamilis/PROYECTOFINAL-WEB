@@ -72,6 +72,12 @@
           center: new google.maps.LatLng(-34.6044226, -58.4246368),
           zoom: 16
         });
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+			initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			map.setCenter(initialLocation);
+		});
+ }
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
